@@ -21,6 +21,28 @@ android {
     }
 }
 
-dependencies {
-    compile 'com.android.support:appcompat-v7:23.4.0'
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'countdown-view' //bintray上的项目名
+
+    publishedGroupId = 'cn.lemon'
+    artifact = 'countdownview'
+    libraryVersion = '0.1.0'
+
+    siteUrl = 'https://github.com/llxdaxia/CountdownView'
+    gitUrl = 'https://github.com/llxdaxia/CountdownView.git'
+
+    libraryName = 'countdownview' //项目名字，没什么用
+    libraryDescription = 'A count down view when app star' //项目描述，没什么用
+
+    developerId = 'Lemon'
+    developerName = 'Lemon'
+    developerEmail = 'daxiallx@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
 }
+
+apply from: 'https://raw.githubusercontent.com/llxdaxia/GradleScript/master/install_v1.gradle'
+apply from: 'https://raw.githubusercontent.com/llxdaxia/GradleScript/master/bintray_v1.gradle'
