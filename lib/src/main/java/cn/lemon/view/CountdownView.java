@@ -13,6 +13,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
+ * 参考了部分代码：http://blog.csdn.net/yanzhenjie1003/article/details/51889239
  * Created by linlongxin on 2016/8/29.
  */
 
