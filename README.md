@@ -1,5 +1,7 @@
 #CountDownView -- 启动页倒计时
 
+ - gradle
+
 ```
 compile 'cn.lemon:countdownview:0.1.0'
 ```
