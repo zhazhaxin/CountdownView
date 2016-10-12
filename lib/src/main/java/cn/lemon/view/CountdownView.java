@@ -34,9 +34,10 @@ public class CountdownView extends TextView {
     private int mCenterX;
     private int mCenterY;
 
-    private int mTime = 2000;
-    private int mChangTimes;
-    private int mCurrentTime;
+    private int mTime = 2000;   //默认计时
+    private int mDrawTimes = 4;  //总的绘制次数
+    private int mCurrentDrawTimes;  //已经绘制的次数
+    private int mEachDrawAngle = 90; //默认每次绘制90度
 
     private Paint mPaint;
     private Rect mBounds;
@@ -115,37 +116,46 @@ public class CountdownView extends TextView {
         mPaint.setStrokeCap(Paint.Cap.ROUND);
         mArcRectF.set(mBounds.left + mProgressLineWidth, mBounds.top + mProgressLineWidth,
                 mBounds.right - mProgressLineWidth, mBounds.bottom - mProgressLineWidth);
-        canvas.drawArc(mArcRectF, -90, mCurrentTime * (360 / mChangTimes), false, mPaint);
+        canvas.drawArc(mArcRectF, -90,
+                (mCurrentDrawTimes + 1) * mEachDrawAngle, false, mPaint);
     }
 
     public void setText(String text) {
         mText = text;
     }
 
-    //应该被500整除
+    //倒计时时间应该被500整除，每隔500毫秒更新一次UI
     public void setTime(int time) {
         mTime = time;
-        mChangTimes = time / 500;
+        mDrawTimes = time / 500;
+        mEachDrawAngle = 360 / mDrawTimes;
+    }
+
+    public int getTime() {
+        return mTime;
     }
 
     public void setProgressColor(int color) {
         mProgressLineColor = color;
     }
-    public void setCircleBackgroundColor(int color){
+
+    public void setCircleBackgroundColor(int color) {
         mCircleColor = color;
     }
-    public void setTextColor(int color){
+
+    public void setTextColor(int color) {
         mTextColor = color;
     }
 
     public void star() {
-        final int changePer = 100 / mChangTimes;
+        final int changePer = 100 / mDrawTimes;
         mTimer.schedule(new TimerTask() {
             @Override
             public void run() {
-                mCurrentTime++;
-                mProgress += changePer;
                 postInvalidate();
+                mCurrentDrawTimes++;
+                mProgress += changePer;
+                mTime -= 500;
                 if (mProgress == 100) {
                     post(new Runnable() {
                         @Override
@@ -159,7 +169,7 @@ public class CountdownView extends TextView {
         }, 500, 500);
     }
 
-    public void setEndAction(Action action) {
+    public void setOnFinishAction(Action action) {
         mEndAction = action;
     }
 }
