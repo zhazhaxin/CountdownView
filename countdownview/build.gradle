@@ -7,8 +7,8 @@ android {
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "2.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -27,7 +27,7 @@ ext {
 
     publishedGroupId = 'cn.lemon'
     artifact = 'countdownview'
-    libraryVersion = '0.1.0'
+    libraryVersion = '0.2.0'
 
     siteUrl = 'https://github.com/llxdaxia/CountdownView'
     gitUrl = 'https://github.com/llxdaxia/CountdownView.git'

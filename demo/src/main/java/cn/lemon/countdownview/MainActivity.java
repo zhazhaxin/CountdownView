@@ -18,9 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mCountdownView = (CountdownView) findViewById(R.id.countdown);
-        mCountdownView.setText("倒计时");
-        mCountdownView.setTime(5000);
-        mCountdownView.star();
+        mCountdownView.start();
         mCountdownView.setOnFinishAction(new Action() {
             @Override
             public void onAction() {

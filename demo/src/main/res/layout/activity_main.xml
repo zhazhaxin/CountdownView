@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
-    android:gravity="center"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="center">
 
     <cn.lemon.view.CountdownView
         android:id="@+id/countdown"
         android:layout_width="56dp"
-        android:layout_height="56dp" />
+        android:layout_height="56dp"
+        app:text="跳过"
+        app:text_color="@android:color/white"
+        app:text_size="13dp"
+        app:update_time="500"
+        app:total_time="5000"
+        app:bg_color="#248742"
+        app:progress_width="2dp"
+        app:progress_hint_color="#94595b59"/>
 
 </RelativeLayout>
